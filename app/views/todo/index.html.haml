@@ -1,7 +1,8 @@
 %h1 Todos
 
-%input#create-todo(placeholder='What needs to be done ?')
-- @all_todos.each do |todo|
-  .todo{:id => "todo-#{todo.id}"}
-    %input(type="checkbox"){:checked => todo.completed?}
-      = todo.title
+.todos(data-controller="todos" data-reflex-root)
+  %input#create-todo(placeholder='What needs to be done ?' data-action="change->todos#create")
+  - @all_todos.each do |todo|
+    .todo{:id => "todo-#{todo.id}"}
+      %input(type="checkbox"){:checked => todo.completed?}
+        = todo.title
