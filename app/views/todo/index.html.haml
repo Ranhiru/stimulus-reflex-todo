@@ -1,1 +1,5 @@
 %h1 Todos
+
+%ul
+- @all_todos.each do |todo|
+  %li#todo= todo.title
