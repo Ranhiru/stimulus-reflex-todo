@@ -1,5 +1,7 @@
 %h1 Todos
 
-%ul
+%input#create-todo(placeholder='What needs to be done ?')
 - @all_todos.each do |todo|
-  %li#todo= todo.title
+  .todo{:id => "todo-#{todo.id}"}
+    %input(type="checkbox"){:checked => todo.completed?}
+      = todo.title
