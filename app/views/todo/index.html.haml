@@ -4,5 +4,5 @@
   %input#create-todo(placeholder='What needs to be done ?' data-action="change->todos#create")
   - @all_todos.each do |todo|
     .todo{:id => "todo-#{todo.id}"}
-      %input(type="checkbox"){:checked => todo.completed?}
+      %input{ "type": "checkbox", "data-action": "change->todos#toggleCompleted", "checked": todo.completed?, "data-todo-id": todo.id }
         = todo.title
